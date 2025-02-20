@@ -1,144 +1,94 @@
-# JobScout.ai: Revolutionizing Job Hunting with AI and Bright Data
+# Career AI
+
+Welcome to **Career AI**, an AI-powered platform that helps individuals enhance their skills, grow their professional profiles, and discover tailored job or internship opportunities. Our goal is to provide a personalized and interactive learning experience, streamline the job search process, and empower you to achieve your career aspirations.
+
+---
 
 ## Overview
-In today’s fast-paced job market, staying ahead requires access to real-time, accurate, and comprehensive data. Traditional job boards often fall short, leaving job seekers frustrated with endless scrolling and filters. 
 
-**Current Problem:** Imagine logging into 10 different websites daily, typing job roles repeatedly, applying countless filters, and still feeling overwhelmed by irrelevant results.
-
-**Solution:** With JobScout.ai, job hunting is seamless. Simply log in, upload your resume, and let our platform do the rest. Receive personalized job recommendations, tailored insights, and daily updates on fresh opportunities—all in one place.
-
----
-
-## Features
-
-### 1. AI-Powered Job Recommendations
-- Matches users to roles based on resumes, profiles, and preferences.
-- Highlights skill gaps and provides learning resources.
-
-### 2. Conversational Job Search
-- Intuitive chatbot supports natural language queries, e.g., "Find remote Python developer jobs paying ₹80,000+."
-- Generates tailored resumes, cover letters, and job comparisons.
-
-### 3. Personalized Dashboard
-- Tracks saved jobs and applications.
-
-### 4. Interview Preparation
-- AI-generated interview questions specific to roles.
-- Offers feedback and suggested responses.
+- **Adaptive Learning Paths**: Explore structured tracks in Software Development, Data Structures & Algorithms (DSA), Machine Learning, Data Analytics, Web Development, and more.  
+- **AI-Driven Skill Assessments**: Evaluate your current abilities with smart assessments that adapt to your proficiency level.  
+- **Resume Optimization**: Automatically refine and tailor your resume for specific job listings.  
+- **Smart Job Matching**: Find and apply to suitable positions based on your location, expertise, and preferences.  
+- **Agentic AI & LLM Finetuning**: Harness advanced NLP models and specialized AI agents for parsing resumes and listing relevant opportunities.
 
 ---
 
-## Architecture
+## Key Features
 
-The system combines Bright Data’s Web Scraper API with cutting-edge AI to deliver a seamless user experience.
+1. **Personalized Recommendations**  
+   - Receive learning path suggestions matched to your interests and skills.  
+   - Engage in targeted practice exercises to upskill efficiently.
 
-```mermaid
-flowchart TD
-    subgraph Frontend
-        UI["User Interface"] --> Dash[Personalized Dashboard]
-        UI --> Chatbot[Conversational Chatbot]
-    end
+2. **Interactive Learning & Practice**  
+   - Access curated courses, coding challenges, and quizzes.  
+   - Practice with real-world examples to build confidence and deepen knowledge.
 
-    subgraph Backend
-        AI[AI Job Matching Engine] --> Alerts[Alerts and Notifications]
-        Chatbot --> AI
-    end
+3. **Job & Internship Search**  
+   - Scrape available openings from multiple sources.  
+   - Filter by geographic region, skill set, or company criteria.
 
-    subgraph DataCollection
-        BDA[Bright Data API] --> Jobs["Job Data (Titles, Descriptions, Skills, Salaries, etc.)"]
-    end
+4. **Resume Parsing & Enhancement**  
+   - Automatically highlight relevant experience and skills for each application.  
+   - Perform iterative improvements to stand out to recruiters.
 
-    subgraph DataStorage
-        S3["AWS S3 (Raw JSON Storage)"] --> DB["Database (Processed Job Data, Profiles, Recommendations)"]
-    end
-
-    subgraph BackgroundTasks
-        Scheduler[Task Scheduler] --> Snapshot[Snapshot Creation and Polling]
-        Snapshot --> BDA
-    end
-
-    subgraph AIProcessing
-        AIModels[AI Models for Recommendations, Skill Gaps, and Interview Prep] --> AI
-    end
-
-    User -->|Login & Resume Upload| UI
-    Jobs --> S3
-    S3 --> DB
-    DB --> AIModels
-    DB --> AI
-    DB --> Dash
-    DB --> Chatbot
-    Scheduler --> BDA
-```
+5. **Freemium & Premium Plans**  
+   - **Freemium**: Access to basic courses, limited practice sessions, and job listings.  
+   - **Premium**: Unlock advanced learning paths, AI-driven resume optimization, and in-depth application tracking.
 
 ---
 
-## Screenshots
+## Getting Started
 
-### Platform
-![Screenshot from 2024-12-30 12-54-17](https://github.com/user-attachments/assets/831d8e06-b261-429e-87e5-79b015bc419a)
-
-### Dashboard
-![Screenshot from 2024-12-29 17-40-43](https://github.com/user-attachments/assets/6c639964-5fb2-4812-acb6-f255c5a6959f)
-
-### AI Assistant
-![Screenshot from 2024-12-29 20-10-53](https://github.com/user-attachments/assets/7d437ac8-a0e8-40f6-a08b-0a57a136d4d4)
-
----
-
-## Demo Video
-
-https://github.com/user-attachments/assets/d6809e5e-e688-498a-a996-35fc0565ae4c
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/career-ai.git
+   ```
+2. **Install Dependencies**  
+   ```bash
+   cd career-ai
+   npm install
+   ```
+3. **Run the App**  
+   ```bash
+   npm run dev
+   ```
+4. **Sign Up or Log In**  
+   - Use Firebase Auth to create your account and securely manage your profile.
 
 ---
 
 ## Tech Stack
 
-- **Frontend:** Next.js, Tailwind CSS
-- **Backend:** FastAPI
-- **Database:** PostgreSQL
-- **Gen AI:** OpenAI
-- **Data Collection:** Bright Data Web Scraper API
-- **Cloud Storage:** AWS S3
-
----
-
-## How I Used Bright Data
-
-1. **Scraping Job Data:**
-   - Scrapes listings from LinkedIn, Glassdoor, and Indeed.
-   - Captures job titles, descriptions, skills, salaries, benefits, locations, and trends.
-   - Updates data in real-time.
-
-2. **Snapshot Creation:**
-   - Periodic API requests fetch jobs based on AI-determined roles, locations, and filters.
-   - Responses are stored as JSON in AWS S3 for efficient processing.
+- **Frontend**: [Next.js](https://nextjs.org/), TypeScript  
+- **Backend**: Node.js, MongoDB  
+- **Authentication**: Firebase Auth  
+- **AI / NLP**: Agentic AI, LLM Finetuning, Web Scraping for job listings
 
 ---
 
 ## Contributing
 
-1. Fork the repository.
-2. Create a feature branch:
+We welcome pull requests and suggestions to improve the platform. To contribute:
+
+1. **Fork this repository**  
+2. **Create a feature branch**  
    ```bash
-   git checkout -b feature-name
+   git checkout -b feature/something-cool
    ```
-3. Commit changes:
+3. **Commit your changes**  
    ```bash
-   git commit -m 'Add feature description'
+   git commit -m "Add a great feature"
    ```
-4. Push to the branch:
+4. **Push to your branch and submit a PR**  
    ```bash
-   git push origin feature-name
+   git push origin feature/something-cool
    ```
-5. Open a pull request.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).  
 
----
-
-**Transform your job search with JobScout.ai!**
+Feel free to reach out if you have any questions or ideas!
